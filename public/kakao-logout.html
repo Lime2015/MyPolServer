@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+    <title>Kakao Login</title>
+    
+    
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    
+    
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  
+  
+  </head>
+  <body>
+  
+    <!-- <a href="javascript:loginWithKakao()" id="custom-login-btn">
+      <img src="http://mud-kage.kakao.co.kr/14/dn/btqbjxsO6vP/KPiGpdnsubSq3a0PHEGUK1/o.jpg" />
+    </a> -->
+	
+    <a href="javascript:logoutWithKakao()" id="custom-logout-btn">
+      	카카오 로그아웃
+    </a>
+	<p>
+    <a href="javascript:logoutWithFacebook()" id="custom-logout-btn">
+      	페이스북 로그아웃
+    </a></p>
+    
+    <script>
+    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    
+    /* $( document ).ready(function() {
+    	var clientID = '81bd09553dfa596110d97ef5cdfed7b9';
+    	Kakao.init(clientID);
+    	
+    	alert("카카오 로그인 시작~~");
+    	
+        // 로그인 창을 띄웁니다.
+        Kakao.Auth.login({
+          success: function(authObj) {
+            alert(JSON.stringify(authObj));
+          },
+          fail: function(err) {
+            alert(JSON.stringify(err))
+          }
+        });
+	}); */
+        
+    /* function loginWithKakao() {
+      // 로그인 창을 띄웁니다.
+      Kakao.Auth.login({
+        success: function(authObj) {
+          alert(JSON.stringify(authObj));
+        },
+        fail: function(err) {
+          alert(JSON.stringify(err))
+        }
+      });
+    } */
+    
+    function logoutWithKakao(){ 
+    	Kakao.init('81bd09553dfa596110d97ef5cdfed7b9');
+    	Kakao.Auth.logout(
+    			   function(obj) {
+    			   if(obj==true){alert('success');window.history.back();}else{alert('fail');}
+    			    }
+    			   );
+    }
+
+    function logoutWithFacebook(){ 
+    	window.location.replace('/logout');
+    }
+    
+    </script>
+  </body>
+</html>
